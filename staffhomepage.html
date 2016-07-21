@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Staff Gallery</title>
+		<meta name="description" content="Animated Books with CSS 3D Transforms" />
+		<meta name="keywords" content="book, 3d, interactive, animated, 3d transform, css, web design" />
+		<meta name="author" content="Marco Barría for Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/book2.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<script type="text/javascript" src="handlebars-v4.0.5.js"></script>
+		<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="scrollscript.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>Staff Gallery <span>IIITA</span></h1>
+				<input id="logout" type="submit" align="right" class="button right1" value="Logout">
+			</header>
+			<div class="component">
+				<ul class="align">
+					<li>
+						<figure class='book'>
+							<ul class='paperback_front'>
+								<li>
+									<span class="ribbon">staff</span>
+									<img src="img/bg.jpg" alt="" width="100%" height="100%">
+								</li>
+								<li></li>
+							</ul>
+							<ul class='ruled_paper'>
+								<li></li>
+								<li>
+									<a href="#forms" class="btn" id="search1">SEARCH
+									</a>
+									 
+								</li>
+								<li></li>
+								<li></li>
+							</ul>
+							<ul class='paperback_back'>
+								<li>
+									<img src="img/bg.jpg" alt="" width="100%" height="100%">
+								</li>
+								<li></li>
+							</ul>
+							<figcaption>
+								<h1>Staff</h1>
+								<span>You can search other Staff Members</span>
+								<p></p>
+							</figcaption>
+						</figure>
+					</li>
+					<li>
+						<figure class='book'>
+							<ul class='paperback_front'>
+								<li>
+									<span class="ribbon">book</span>
+									<img src="img/paper.jpg" alt="" width="100%" height="100%">
+								</li>
+								<li></li>
+							</ul>
+							<ul class='ruled_paper'>
+								<li></li>
+								<li>
+									<br>
+									<a class="btn5" href="#forms" id="add2">ADD
+									</a>
+									<br>
+									<a class="btn5"  href="#forms" id="remove2">REMOVE
+									</a>
+									<br>
+									<a class="btn5" href="#forms" id="search2">SEARCH
+									</a>
+									<br>
+									<a class="btn5" href="#tables" id="view">Requested books
+									</a>
+									<br>
+									<a class="btn5" href="#forms" id="issue">Issue
+									</a>
+									<br>
+									<a class="btn5" href="#forms" id="return">Return
+									</a>
+								</li>	
+								<li></li>
+							</ul>
+							<ul class='paperback_back'>
+								<li>
+									<img src="img/paper.jpg" alt="" width="100%" height="100%">
+								</li>
+								<li></li>
+							</ul>
+							<figcaption>
+								<h1>BOOK</h1>
+								<span>Add/Remove or Search books in Library</span>
+								<p></p>
+							</figcaption>
+						</figure>
+					</li>
+				</ul>
+			</div>
+			<br>
+		
+	<div align="center" id="forms" style="overflow:hidden;">
+			<p id="d1" style="display:none;"></p>
+		<form action="search.php" class="searchform12" method="POST" id="searchform1" style="display:none;">
+			<input type="text" name="query" id="query"><br>
+			<select name="subgroup" form="searchform1" id="subgroup">
+				<option value="id">id</option>
+				<option value="name">name</option>
+				<option value="address">address</option>
+			</select><br>
+			<input type="submit" name="action" class="button" value="search">
+		</form>
+
+		<p id="d2" style="display:none;"></p>
+		<form action="staff_operation.php" class="searchform12" method="POST" id="addbook" style="display:none;">
+			<input type="text" name="id" placeholder="id" id="addid"><br>
+			<input type="text" name="isbn" placeholder="isbn" id="addisbn"><br>
+			<input type="text" name="title" placeholder="title" id="addtitle"><br>
+			<div id="aa">
+			<input type="text" name="author" placeholder="author" class="addauthor">
+			</div>
+			<button id="addauthbut" class="button right" >+</button>
+			<button id="remauthbut" class="button right" >-</button>
+			<div id="ap">
+			<input type="text" name="publisher" placeholder="publisher" class="addpublisher">
+			</div>
+			<button id="addpubbut" class="button right" >+</button>
+			<button id="rempubbut" class="button right" >-</button><br>
+			<input type="text" name="price" placeholder="price" id="addprice"><br>
+			<input type="text" name="shelf_no" placeholder="shelf_no" id="addshelf_no"><br>
+		
+			<input type="submit" name="action" class="button" value="add" id="addsubmit"><br>
+		</form>
+
+		<p id="d3" style="display:none;"></p>
+		<form action="staff_operation.php" class="searchform12" method="POST" id="removebook" style="display:none;">
+			<input type="text" name="id" placeholder="id" id="removeid"><br>
+			<input type="submit" class="button" name="action" value="remove" id="removesubmit"><br>
+		</form>
+
+		<p id="d4" style="display:none;"></p>
+		<form action="search.php" class="searchform12" method="POST" id="searchform2" style="display:none;">
+			<input type="text" name="query" id="query2"><br>
+			
+			<select name="subgroup" form="searchform2" id="subgroup2">
+				<option value="title">title</option>
+				<option value="author">author</option>
+				<option value="publisher">publisher</option>
+				<option value="availability">availability</option>
+				<option value="isbn">isbn</option>
+			</select><br>
+			<input type="submit" class="button" name="action" value="Search"><br>
+		</form>		
+
+		<p id="d5" style="display:none;"></p>
+		<form action="staff_operation.php" class="searchform12" method="POST" id="issuebook" style="display:none;">
+			<input type="text" name="user_id" placeholder="user_id" id="user_id_iss"><br>
+			<input type="text" name="isbn" placeholder="isbn" id="isbn_iss"><br>
+			<input type="submit" class="button" name="action" value="Issue"><br>
+		</form>
+
+		<p id="d6" style="display:none;"></p>
+		<form action="staff_operation.php" class="searchform12" method="POST" id="returnbook" style="display:none;">
+			<input type="text" name="book_id" placeholder="book_id" id="book_id"><br>
+			<input type="submit" class="button" name="action" value="Return"><br>
+		</form>
+		<p id="d7" style="display:none;"></p>
+	</div>
+	<div id="tables">
+	<script id="stafftemplate" type="text/x-handlebars-template"> 
+	<table style="width:100%">
+		<div class="header"><tr><th colspan="6" style="text-align: center">Users Details</th></tr></div>
+    	<tr> 
+    	    <th>Id</th> 
+    	    <th>Name</th> 
+    	    <th>Address</th> 
+    	</tr>
+    	<tbody> 
+    	    {{#staffs}} 
+    	    <tr> 
+    	        <td>{{id}}</td> 
+    	        <td>{{name}}</td> 
+    	        <td>{{address}}</td> 
+    	    </tr> 
+    	    {{/staffs}} 
+    	</tbody> 
+	</table>
+	</script>
+
+	<script id="booktemplate" type="text/x-handlebars-template"> 
+	<table style="width:100%">
+		<div class="header"><tr><th colspan="6" style="text-align: center">Book Details</th></tr></div>
+    	<tr> 
+    	    <th>Id</th> 
+    	    <th>Title</th> 
+    	    <th>Author</th>
+    	    <th>Publisher</th>
+    	    <th>ISBN</th>
+    	    <th>Price</th>
+    	    <th>Shelf No.</th>
+    	    <th>Availability</th>
+    	</tr>
+    	<tbody> 
+    	    {{#books}} 
+    	    <tr> 
+    	        <td>{{id}}</td> 
+    	        <td>{{title}}</td> 
+    	        <td>{{#each authors}}
+    	        		<span>{{this}}  </span>
+    	        	{{/each}}
+    	        </td>
+    	        <td>{{#each publishers}}
+    	        		<span>{{this}}  </span>
+    	        	{{/each}}
+    	        </td> 
+    	        <td>{{isbn}}</td>
+    	        <td>{{price}}</td>
+    	        <td>{{shelf_no}}</td>
+    	        <td>{{#if available}}
+    	        	Yes
+    	        	{{else}}
+    	        	No
+    	        	{{/if}}
+    	        </td>
+    	    </tr> 
+    	    {{/books}} 
+    	</tbody> 
+	</table> 
+	</script>
+
+	<script id="viewtemplate" type="text/x-handlebars-template"> 
+	<table style="width:100%">
+		<div class="header"><tr><th colspan="6" style="text-align: center">Request Details</th></tr></div>
+    	<tr> 
+    	    <th>User_Id</th> 
+    	    <th>ISBN</th>
+    	    <th>Request date</th>
+    	</tr>
+    	<tbody> 
+    	    {{#requests}} 
+    	    <tr> 
+    	        <td>{{user_id}}</td> 
+    	        <td>{{isbn}}</td>
+    	        <td>{{req_date}}</td>
+    	    </tr> 
+    	    {{/requests}} 
+    	</tbody> 
+	</table>
+	</script>
+	<div id="result"></div>
+	</div>
+</div>
+
+<script type="text/javascript" src="staffhomepage.js"></script>
+	</body>
+</html>
