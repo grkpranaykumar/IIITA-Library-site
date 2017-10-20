@@ -1,0 +1,3 @@
+LIBRARY MANAGEMENT SYSTEM
+This is a model website for library management site for which CSS is used for front-end,PHP and javascript for backend.
+The database for the project is totally normalized by eliminating data redundancy and removing anamolies.
